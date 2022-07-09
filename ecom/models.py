@@ -17,6 +17,9 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
+    def __str__(self) -> str:
+        return f"{self.name}"
+
 
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -31,3 +34,6 @@ class Product(models.Model):
 
     objects = models.Manager()
     actives = ProductManager()
+
+    def __str__(self) -> str:
+        return f"{self.title}"
